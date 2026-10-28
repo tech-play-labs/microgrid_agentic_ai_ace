@@ -1,10 +1,10 @@
-# microgrid-ace
+# microgrid-agentic-ai-ace
 
 A hands-on, runnable example of **Agentic Context Engineering (ACE)**: a language model operates a simulated microgrid one hour at a time, and a Reflector and Curator maintain a small playbook of rules that is fed back to the next day's decisions. Everything can run locally.
 
 This is an educational project. The results below come from runs with small local models, and they are an observation, not a verdict on ACE.
 
-- Blog post: [LINK_TO_BLOG](LINK_TO_BLOG): the full walkthrough
+- Blog post: [Part 1](https://medium.com/@chebba.asma/what-happens-when-an-llm-builds-its-own-context-to-run-a-microgrid-part-1-3-1d3a1c0e3f48), [Part 2](https://medium.com/@chebba.asma/what-happens-when-an-llm-builds-its-own-context-to-run-a-microgrid-part-2-3-bd414779ccbf), [Part 3](https://medium.com/@chebba.asma/what-happens-when-an-llm-builds-its-own-context-to-run-a-microgrid-part-3-3-64667a1d72a4): the full walkthrough
 - Scenario details: [scenario_details.md](scenario_details.md): the energy system, scenario generation, and assumptions
 
 ## What you can learn here
@@ -100,7 +100,7 @@ runs/               outputs (not versioned)
 
 ## Troubleshooting
 
-- **Calls get slower during a long run, CPUs are all busy, swap fills up.** I saw this after an Ollama update: the newer runner keeps a cache of earlier prompts in system memory, and a simulation's prompts share little, so the cache grows without being reused. I added Ollama settings to turn that cache off and to keep one model loaded at a time (`LLAMA_ARG_CACHE_RAM`, `OLLAMA_MAX_LOADED_MODELS=1`). Check `ollama ps` to see how much of the model is on the GPU, and `free -h` for memory.
+- **Calls get slower during a long run, CPUs are all busy, swap fills up.** I saw this after an Ollama update: the newer runner keeps a cache of earlier prompts in system memory, and a simulation's prompts share little, so the cache grows without being reused. I added Ollama settings to turn that cache off and to keep one model loaded at a time (`LLAMA_ARG_CACHE_RAM=0`, `OLLAMA_MAX_LOADED_MODELS=1`). Check `ollama ps` to see how much of the model is on the GPU, and `free -h` for memory.
 
 ## Two observations (two runs, not a verdict)
 
@@ -111,7 +111,7 @@ Setup: `qwen3:8b` via Ollama as Generator, temperature 0, 6 families × 5 seeds 
 | `heuristic` | 87.1 | |
 | `llm` (memoryless) | 67.6 | −19.5 vs. heuristic (95% interval −26.8 to −12.7) |
 | `llm_ace`, run A (`qwen3:8b` reflects) | 61.2 | −6.4 vs. memoryless (95% interval −11.7 to −1.6) |
-| `llm_ace`, run B (`phi4:14b` reflects) | XX.X | XX.X vs. memoryless (95% interval XX.X to XX.X) |
+| `llm_ace`, run B (`phi4:14b` reflects) | 57.9 | −9.0 vs. memoryless (95% interval −15.0 to −3.2) |
 
 **What the two runs show.** In run A, ACE got worse over time, and its playbook held five near-duplicate rules, all of the form "avoid discharging" or "stay idle", one of them backwards (it said to avoid discharging when fees are low and prices high). Run B's playbook had more varied rules, two of them clearly useful (do not charge when the import price is high; avoid exporting when solar is high and the export limit binds), and others that were vague or harmful.
 
