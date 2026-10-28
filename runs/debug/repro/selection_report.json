@@ -1,0 +1,286 @@
+{
+ "r_qwen3_8b_nothink": [
+  {
+   "profile": "r_qwen3_8b_nothink",
+   "repeat": 0,
+   "seed": 42,
+   "gate": null,
+   "total": 60.0,
+   "seconds": 241,
+   "tokens": 387,
+   "thinking_chars": 0,
+   "grounding": 30.0,
+   "grounded": "16/16",
+   "correctness": 15,
+   "flags": [
+    "charge_when_price_high"
+   ],
+   "specificity": 0.0,
+   "concision": 5,
+   "compliance": 10,
+   "hints": {
+    "mentions_temperature": false,
+    "mentions_fee": true,
+    "mentions_fee_hours": true
+   },
+   "rules": [
+    "Discharge during hours with high export price percentile and low or no injection fee to maximize reward.",
+    "Avoid discharging during hours with high injection fees, even if export prices are relatively high.",
+    "Charge during hours with high import price percentile and low grid kW to optimize reward.",
+    "Avoid discharging during hours with export limit reduction and solar curtailment."
+   ]
+  },
+  {
+   "profile": "r_qwen3_8b_nothink",
+   "repeat": 1,
+   "seed": 43,
+   "gate": null,
+   "total": 65.0,
+   "seconds": 80,
+   "tokens": 420,
+   "thinking_chars": 0,
+   "grounding": 30.0,
+   "grounded": "19/19",
+   "correctness": 15,
+   "flags": [
+    "charge_when_price_high"
+   ],
+   "specificity": 0.0,
+   "concision": 10,
+   "compliance": 10,
+   "hints": {
+    "mentions_temperature": false,
+    "mentions_fee": true,
+    "mentions_fee_hours": true
+   },
+   "rules": [
+    "Discharge during hours with high export price percentile and low or no injection fee to maximize reward.",
+    "Avoid discharging during hours with high injection fees, even if export prices are relatively high.",
+    "Charge during hours with high import price percentile and when battery energy is high to avoid high import costs.",
+    "Avoid discharging during hours with export limit reductions and solar curtailment to prevent losses from injection fees."
+   ]
+  }
+ ],
+ "r_deepseek_r1_8b_nothink": [
+  {
+   "profile": "r_deepseek_r1_8b_nothink",
+   "repeat": 0,
+   "seed": 42,
+   "gate": "invalid JSON for the schema",
+   "total": 0,
+   "seconds": 565,
+   "tokens": 2500,
+   "thinking_chars": 9211
+  },
+  {
+   "profile": "r_deepseek_r1_8b_nothink",
+   "repeat": 1,
+   "seed": 43,
+   "gate": "invalid JSON for the schema",
+   "total": 0,
+   "seconds": 531,
+   "tokens": 2500,
+   "thinking_chars": 9752
+  }
+ ],
+ "r_gemma3_12b": [
+  {
+   "profile": "r_gemma3_12b",
+   "repeat": 0,
+   "seed": 42,
+   "gate": null,
+   "total": 65.0,
+   "seconds": 334,
+   "tokens": 646,
+   "thinking_chars": 0,
+   "grounding": 30.0,
+   "grounded": "25/25",
+   "correctness": 15,
+   "flags": [
+    "fee_read_as_income"
+   ],
+   "specificity": 0.0,
+   "concision": 10,
+   "compliance": 10,
+   "hints": {
+    "mentions_temperature": false,
+    "mentions_fee": true,
+    "mentions_fee_hours": true
+   },
+   "rules": [
+    "When export prices are high, consider the impact of injection fees on overall profitability. Evaluate whether the export price exceeds the injection fee plus import cost.",
+    "When the grid export limit reduces discharge requests, investigate whether curtailing solar production or adjusting battery discharge rates could optimize revenue while staying within grid constraints.",
+    "Continue to actively manage the battery, even when injection fees are present, as it can still outperform a passive approach.",
+    "Prioritize high-rate battery discharge when injection fees are not active to maximize revenue."
+   ]
+  },
+  {
+   "profile": "r_gemma3_12b",
+   "repeat": 1,
+   "seed": 43,
+   "gate": null,
+   "total": 85.0,
+   "seconds": 186,
+   "tokens": 541,
+   "thinking_chars": 0,
+   "grounding": 30.0,
+   "grounded": "14/14",
+   "correctness": 30,
+   "flags": [],
+   "specificity": 5.0,
+   "concision": 10,
+   "compliance": 10,
+   "hints": {
+    "mentions_temperature": false,
+    "mentions_fee": true,
+    "mentions_fee_hours": true
+   },
+   "rules": [
+    "When exporting energy during hours 9-15, evaluate the injection fee and consider reducing discharge if the fee significantly reduces the net reward.",
+    "Monitor grid export limits and adjust discharge requests accordingly to maximize battery utilization without exceeding the limit.",
+    "When export limits are active, assess the impact of curtailing solar energy and consider alternative strategies to optimize energy flow.",
+    "Continue to prioritize active battery management strategies, but carefully evaluate the costs associated with each action (e.g., injection fees) to ensure a net positive impact on the reward."
+   ]
+  }
+ ],
+ "r_phi4_14b": [
+  {
+   "profile": "r_phi4_14b",
+   "repeat": 0,
+   "seed": 42,
+   "gate": null,
+   "total": 65.0,
+   "seconds": 223,
+   "tokens": 423,
+   "thinking_chars": 0,
+   "grounding": 30.0,
+   "grounded": "13/13",
+   "correctness": 0,
+   "flags": [
+    "fee_read_as_income",
+    "charge_when_price_high"
+   ],
+   "specificity": 15.0,
+   "concision": 10,
+   "compliance": 10,
+   "hints": {
+    "mentions_temperature": false,
+    "mentions_fee": true,
+    "mentions_fee_hours": false
+   },
+   "rules": [
+    "Avoid charging the battery when the import price is above the 75th percentile.",
+    "Limit discharging when the export price is below the 75th percentile and injection fees are applied.",
+    "Monitor and adapt to grid export limits and fees to optimize discharging strategy.",
+    "Prioritize discharging during hours with export prices above the 75th percentile and no injection fees."
+   ]
+  },
+  {
+   "profile": "r_phi4_14b",
+   "repeat": 1,
+   "seed": 43,
+   "gate": null,
+   "total": 60.4,
+   "seconds": 138,
+   "tokens": 375,
+   "thinking_chars": 0,
+   "grounding": 25.4,
+   "grounded": "11/13",
+   "correctness": 0,
+   "flags": [
+    "fee_read_as_income",
+    "discharge_when_price_low",
+    "charge_when_price_high"
+   ],
+   "specificity": 15.0,
+   "concision": 10,
+   "compliance": 10,
+   "hints": {
+    "mentions_temperature": false,
+    "mentions_fee": true,
+    "mentions_fee_hours": false
+   },
+   "rules": [
+    "Avoid charging the battery when the import price percentile is above 0.7.",
+    "Limit discharging when the export price percentile is below 0.8 to minimize injection fees.",
+    "Monitor grid export limits and adjust discharge strategy to avoid curtailment.",
+    "Prioritize discharging when the export price percentile is above 0.5."
+   ]
+  }
+ ],
+ "r_qwen3_14b_nothink": [
+  {
+   "profile": "r_qwen3_14b_nothink",
+   "repeat": 0,
+   "seed": 42,
+   "gate": null,
+   "total": 75.0,
+   "seconds": 330,
+   "tokens": 538,
+   "thinking_chars": 0,
+   "grounding": 30.0,
+   "grounded": "19/19",
+   "correctness": 15,
+   "flags": [
+    "charge_when_price_high"
+   ],
+   "specificity": 10.0,
+   "concision": 10,
+   "compliance": 10,
+   "hints": {
+    "mentions_temperature": false,
+    "mentions_fee": true,
+    "mentions_fee_hours": true
+   },
+   "rules": [
+    "When export_limit_reduce_discharge is active, discharging during lower price percentiles (e.g., < 0.7) can still yield positive rewards despite injection fees.",
+    "Charging during higher price percentiles may be beneficial if the battery can be discharged later during lower price percentiles.",
+    "During hours with export_limit_curtail_solar, discharging may be necessary to avoid unmet EV energy and maintain grid stability.",
+    "Discharging during higher price percentiles (e.g., > 0.8) can be profitable if the battery is not constrained by export limits."
+   ]
+  },
+  {
+   "profile": "r_qwen3_14b_nothink",
+   "repeat": 1,
+   "seed": 43,
+   "gate": null,
+   "total": 70.0,
+   "seconds": 224,
+   "tokens": 581,
+   "thinking_chars": 0,
+   "grounding": 30.0,
+   "grounded": "22/22",
+   "correctness": 15,
+   "flags": [
+    "charge_when_price_high"
+   ],
+   "specificity": 5.0,
+   "concision": 10,
+   "compliance": 10,
+   "hints": {
+    "mentions_temperature": false,
+    "mentions_fee": true,
+    "mentions_fee_hours": true
+   },
+   "rules": [
+    "Avoid discharging during hours with export_limit_reduce_discharge flags, especially when price percentiles are below 0.75.",
+    "Consider charging during hours with high price percentiles and low import prices to maximize reward.",
+    "Discharge during hours with high price percentiles and no export_limit_reduce_discharge flags to maximize reward.",
+    "Avoid discharging during hours with export_limit_curtail_solar flags to prevent potential reductions in reward."
+   ]
+  }
+ ]
+}
+
+From the rules, phi4:14b is the most useful candidate for this project, with gemma3:12b second. qwen3:8b and qwen3:14b each propose an inverted rule, and deepseek-r1:8b cannot be used on the limited hardware.
+The models, rule by rule
+
+   * phi4:14b. Both repeats give short, imperative rules with price-percentile thresholds, and by my reading the directions are right: avoid charging when the import price is above the 75th percentile (or percentile 0.7), and discharge when export prices are high. These are rules a Generator can act on. The weak points are one "monitor and adapt" filler rule per reply, and rules conditioned on "injection fees applied", which the Generator cannot know at decision time. It took 138 to 223 seconds per call.
+
+   * gemma3:12b. Repeat 1 is the best single reply in the report. It names the actual fee window ("when exporting energy during hours 9-15, evaluate the injection fee and consider reducing discharge…"), which is the only rule that depends on the observable hour. Repeat 0 is vaguer and has a muddled comparison ("export price exceeds the injection fee plus import cost"). Many of its rules are hedged ("evaluate", "monitor", "continue to actively manage"). It took 186 to 334 seconds, and the two repeats differ a lot.
+
+   * qwen3:8b. Fast (80 to 241 seconds), and three of its four rules are sensible, such as avoiding discharge when injection fees are high. But both repeats include a real inversion: "charge during hours with high import price percentile". That rule would make the Generator buy at expensive hours.
+
+   * qwen3:14b. Not better than the 8B. Repeat 0 says to charge at high price percentiles "if the battery can be discharged later during lower price percentiles", which is buying high and selling low. It also claims discharging may be needed "to avoid unmet EV energy" during solar curtailment, which is an invented cause. Repeat 1 has a contradictory "high price percentiles and low import prices".
+
+   * deepseek-r1:8b with think: false. Both repeats used all 2,500 tokens and produced about 9,000 to 10,000 characters of reasoning without valid JSON. The flag evidently did not stop its reasoning. It is out.

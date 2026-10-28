@@ -1,0 +1,3 @@
+- R001 [candidate]: Avoid charging the battery when the import price is above the 75th percentile.
+- R002 [candidate]: Limit discharging during hours when the export price is below the 25th percentile to avoid high injection fees.
+- R003 [candidate]: Discharge during low export price hours only if the export price is above the 10th percentile and injection fees are manageable.

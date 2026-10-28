@@ -1,0 +1,40 @@
+{
+ "active_profile": "ollama_qwen3-8b",
+ "debug_log": "runs/debug/latest_run/llm_calls.jsonl",
+ "profiles": {
+  "ollama_qwen3-8b": {"type": "ollama", "model": "qwen3:8b", "host": "http://localhost:11434",
+                   "temperature": 0.0, "seed": 42, "max_tokens": 1000, "timeout_s": 120,
+                   "extra_body": {"think": false}},
+  "openrouter":   {"type": "openai_compat", "model": "google/gemma-4-26b-a4b-it:free",
+                   "base_url": "https://openrouter.ai/api/v1", "api_key_env": "OPENROUTER_API_KEY",
+                   "temperature": 0.0, "max_tokens": 1000, "timeout_s": 60,
+                   "extra_body": {}},
+  "groq":         {"type": "openai_compat", "model": "openai/gpt-oss-20b",
+                   "base_url": "https://api.groq.com/openai/v1", "api_key_env": "GROQ_API_KEY",
+                   "temperature": 0.0, "max_tokens": 1000, "timeout_s": 60, "extra_body": {}},
+  "mock":         {"type": "mock"},
+  "ollama_deepseek-r1-8b": {"type": "ollama", "model": "deepseek-r1:8b", "host": "http://localhost:11434",
+                    "temperature": 0.6, "seed": 42, "max_tokens": 1000, "timeout_s": 2400,
+                    "extra_body": {}},
+  "ollama_phi4_14b":   {"type": "ollama", "model": "phi4:14b", "host": "http://localhost:11434",
+                   "temperature": 0.0, "seed": 42, "max_tokens": 1000, "timeout_s": 1800,
+                   "extra_body": {}},
+
+  "r_qwen3_4b_think":        {"type": "ollama", "model": "qwen3:4b", "host": "http://localhost:11434", "temperature": 0.6, "seed": 42, "max_tokens": 1000, "timeout_s": 1800, "extra_body": {"think": true}},
+  "r_qwen3_8b_nothink":      {"type": "ollama", "model": "qwen3:8b", "host": "http://localhost:11434", "temperature": 0.0, "seed": 42, "max_tokens": 1000, "timeout_s": 1800, "extra_body": {"think": false}},
+  "r_qwen3_8b_think":        {"type": "ollama", "model": "qwen3:8b", "host": "http://localhost:11434", "temperature": 0.6, "seed": 42, "max_tokens": 1000, "timeout_s": 1800, "extra_body": {"think": true}},
+  "r_qwen3_14b_nothink":     {"type": "ollama", "model": "qwen3:14b", "host": "http://localhost:11434", "temperature": 0.0, "seed": 42, "max_tokens": 1000, "timeout_s": 1800, "extra_body": {"think": false}},
+  "r_deepseek_r1_8b_nothink":{"type": "ollama", "model": "deepseek-r1:8b", "host": "http://localhost:11434", "temperature": 0.6, "seed": 42, "max_tokens": 1000, "timeout_s": 1800, "extra_body": {"think": false}},
+  "r_deepseek_r1_8b":        {"type": "ollama", "model": "deepseek-r1:8b", "host": "http://localhost:11434", "temperature": 0.6, "seed": 42, "max_tokens": 1000, "timeout_s": 1800},
+  "r_gemma3_12b":            {"type": "ollama", "model": "gemma3:12b", "host": "http://localhost:11434", "temperature": 0.0, "seed": 42, "max_tokens": 1000, "timeout_s": 1800},
+  "r_phi4_14b":              {"type": "ollama", "model": "phi4:14b", "host": "http://localhost:11434", "temperature": 0.0, "seed": 42, "max_tokens": 1000, "timeout_s": 1800}
+
+ },
+ "budget": {
+    "generator": {"num_ctx": [4096, 8192, 16384], "max_tokens": [300, 600, 1200]},
+    "reflector": {"num_ctx": [6144, 8192, 16384, 24576], "max_tokens": [3000, 6000, 10000]},
+    "curator":   {"num_ctx": [6144, 8192, 16384, 24576], "max_tokens": [3000, 6000, 10000]}
+  }
+}
+
+

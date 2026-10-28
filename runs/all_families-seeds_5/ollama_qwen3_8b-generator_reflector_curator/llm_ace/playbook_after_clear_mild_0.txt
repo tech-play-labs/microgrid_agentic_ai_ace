@@ -1,0 +1,3 @@
+- R001 [candidate]: When price percentile is low and export fees are high, prioritize discharging to maximize profit.
+- R002 [candidate]: Avoid discharging during hours with export limits to prevent reduced export prices and lower rewards.
+- R003 [candidate]: When export fees are high and price percentiles are low, prioritize discharging over charging.

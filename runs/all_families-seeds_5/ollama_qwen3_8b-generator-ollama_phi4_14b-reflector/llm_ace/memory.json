@@ -1,0 +1,98 @@
+{
+ "version": 11,
+ "next_id": 7,
+ "rules": [
+  {
+   "id": "R001",
+   "text": "Avoid charging the battery when the import price is above the 75th percentile.",
+   "support": 19,
+   "contra": 0,
+   "deprecated": false,
+   "evidence": [
+    "clear_mild_3",
+    "clear_hot_3",
+    "hot_spike_3",
+    "mild_spike_3",
+    "clear_hot_4"
+   ],
+   "created": "clear_mild_0",
+   "updated": "clear_hot_4"
+  },
+  {
+   "id": "R002",
+   "text": "Avoid exporting energy during hours with high injection fees, even if the export price is low.",
+   "support": 15,
+   "contra": 0,
+   "deprecated": false,
+   "evidence": [
+    "low_solar_3",
+    "clear_mild_4",
+    "clear_hot_4",
+    "cloudy_4",
+    "low_solar_4"
+   ],
+   "created": "clear_mild_0",
+   "updated": "low_solar_4"
+  },
+  {
+   "id": "R003",
+   "text": "Discharge when the export price is above the 25th percentile and injection fees are manageable.",
+   "support": 2,
+   "contra": 1,
+   "deprecated": false,
+   "evidence": [
+    "low_solar_1",
+    "mild_spike_1",
+    "low_solar_3",
+    "hot_spike_3",
+    "cloudy_4"
+   ],
+   "created": "clear_mild_0",
+   "updated": "cloudy_4"
+  },
+  {
+   "id": "R004",
+   "text": "Maintain battery idle during periods of low price volatility to avoid unnecessary charges.",
+   "support": 26,
+   "contra": 0,
+   "deprecated": false,
+   "evidence": [
+    "clear_hot_4",
+    "cloudy_4",
+    "low_solar_4",
+    "hot_spike_4",
+    "mild_spike_4"
+   ],
+   "created": "low_solar_0",
+   "updated": "mild_spike_4"
+  },
+  {
+   "id": "R005",
+   "text": "Avoid exporting energy during high solar generation hours with export limits to prevent unnecessary injection fees.",
+   "support": 16,
+   "contra": 0,
+   "deprecated": false,
+   "evidence": [
+    "clear_mild_4",
+    "clear_hot_4",
+    "cloudy_4",
+    "hot_spike_4",
+    "mild_spike_4"
+   ],
+   "created": "hot_spike_1",
+   "updated": "mild_spike_4"
+  },
+  {
+   "id": "R006",
+   "text": "Maintain battery idle during high price percentile hours with injection fees to avoid unnecessary charges.",
+   "support": 1,
+   "contra": 0,
+   "deprecated": false,
+   "evidence": [
+    "low_solar_4"
+   ],
+   "created": "low_solar_4",
+   "updated": "low_solar_4"
+  }
+ ]
+}

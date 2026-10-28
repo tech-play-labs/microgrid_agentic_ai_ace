@@ -1,0 +1,22 @@
+{
+ "thermal_penalty": {
+  "temperature_threshold_c": 35.0,
+  "discharge_fraction_threshold": 0.6,
+  "discharge_cap_fraction": 0.0,
+  "efficiency_multiplier": 1.0,
+  "duration_steps": 3,
+  "repeat_trigger_behavior": "RESET_TIMER"
+ },
+ "injection_fee": {
+  "fee_per_exported_kwh": 0.08,
+  "applicable_hours": [
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15
+  ]
+ }
+}

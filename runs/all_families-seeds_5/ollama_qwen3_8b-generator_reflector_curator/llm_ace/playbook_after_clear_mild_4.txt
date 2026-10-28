@@ -1,0 +1,4 @@
+- R001 [supported]: When price percentile is low and export fees are high, avoid discharging to prevent losses compared to the do-nothing baseline.
+- R002 [supported]: Avoid discharging during hours with export limits to prevent reduced export prices and lower rewards.
+- R004 [supported]: Avoid discharging during hours with high export fees and low price percentiles to prevent losses compared to the do-nothing baseline.
+- R005 [candidate]: Maintain battery idle during periods of low price percentile and high export fees to avoid losses.

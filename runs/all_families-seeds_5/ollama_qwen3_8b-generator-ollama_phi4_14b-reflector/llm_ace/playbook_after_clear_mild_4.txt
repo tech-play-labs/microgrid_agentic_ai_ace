@@ -1,0 +1,5 @@
+- R004 [supported]: Maintain battery idle during periods of low price volatility to avoid unnecessary charges.
+- R001 [supported]: Avoid charging the battery when the import price is above the 75th percentile.
+- R002 [supported]: Avoid exporting energy during hours with high injection fees, even if the export price is low.
+- R005 [supported]: Avoid exporting energy during high solar generation hours with export limits to prevent unnecessary injection fees.
+- R003 [candidate]: Discharge when the export price is above the 25th percentile and injection fees are manageable.

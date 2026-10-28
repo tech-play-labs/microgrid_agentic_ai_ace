@@ -1,0 +1,86 @@
+{
+ "version": 13,
+ "next_id": 6,
+ "rules": [
+  {
+   "id": "R001",
+   "text": "When price percentile is low and export fees are high, avoid discharging to prevent losses compared to the do-nothing baseline.",
+   "support": 15,
+   "contra": 0,
+   "deprecated": false,
+   "evidence": [
+    "mild_spike_3",
+    "clear_mild_4",
+    "cloudy_4",
+    "low_solar_4",
+    "hot_spike_4"
+   ],
+   "created": "clear_mild_0",
+   "updated": "hot_spike_4"
+  },
+  {
+   "id": "R002",
+   "text": "Avoid discharging during hours with high export fees to prevent reduced export prices and lower rewards.",
+   "support": 11,
+   "contra": 2,
+   "deprecated": false,
+   "evidence": [
+    "hot_spike_3",
+    "mild_spike_3",
+    "clear_mild_4",
+    "low_solar_4",
+    "hot_spike_4"
+   ],
+   "created": "clear_mild_0",
+   "updated": "hot_spike_4"
+  },
+  {
+   "id": "R003",
+   "text": "When export fees are low and price percentiles are high, avoid discharging to maximize profit.",
+   "support": 3,
+   "contra": 0,
+   "deprecated": true,
+   "evidence": [
+    "hot_spike_1",
+    "clear_hot_2",
+    "cloudy_2",
+    "low_solar_2",
+    "mild_spike_2"
+   ],
+   "created": "clear_mild_0",
+   "updated": "mild_spike_2"
+  },
+  {
+   "id": "R004",
+   "text": "Avoid discharging during hours with high export fees and low price percentiles to prevent losses compared to the do-nothing baseline.",
+   "support": 12,
+   "contra": 0,
+   "deprecated": false,
+   "evidence": [
+    "clear_mild_4",
+    "cloudy_4",
+    "low_solar_4",
+    "hot_spike_4",
+    "mild_spike_4"
+   ],
+   "created": "low_solar_2",
+   "updated": "mild_spike_4"
+  },
+  {
+   "id": "R005",
+   "text": "Maintain battery idle during periods of low price percentile and high export fees to avoid losses.",
+   "support": 4,
+   "contra": 0,
+   "deprecated": false,
+   "evidence": [
+    "clear_mild_4",
+    "clear_hot_4",
+    "cloudy_4",
+    "low_solar_4",
+    "hot_spike_4"
+   ],
+   "created": "clear_mild_4",
+   "updated": "hot_spike_4"
+  }
+ ]
+}

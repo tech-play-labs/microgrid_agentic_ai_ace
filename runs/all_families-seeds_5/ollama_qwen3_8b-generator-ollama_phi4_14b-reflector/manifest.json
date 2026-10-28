@@ -1,0 +1,328 @@
+{
+ "created": "2026-10-26T19:56:46",
+ "argv": [
+  "run.py",
+  "--controllers",
+  "do_nothing,heuristic,llm,llm_ace",
+  "--profile",
+  "ollama_qwen3-8b",
+  "--reflector-profile",
+  "ollama_phi4_14b",
+  "--seeds",
+  "5",
+  "--run-name",
+  "all_families-seeds_5/ollama_qwen3_8b-generator-ollama_phi4_14b-reflector"
+ ],
+ "args": {
+  "controllers": "do_nothing,heuristic,llm,llm_ace",
+  "profile": "ollama_qwen3-8b",
+  "reflector_profile": "ollama_phi4_14b",
+  "memory_file": null,
+  "families": "clear_mild,clear_hot,cloudy,low_solar,hot_spike,mild_spike",
+  "seeds": 5,
+  "seed_start": 0,
+  "run_name": "all_families-seeds_5/ollama_qwen3_8b-generator-ollama_phi4_14b-reflector"
+ },
+ "git_commit": "0dd7645d415ca51d37c0b0cc9dfe6ff22c65249b",
+ "python": "3.12.3",
+ "configs": {
+  "assets": {
+   "asset_config_id": "bess_A",
+   "capacity_kwh": 200.0,
+   "min_energy_kwh": 20.0,
+   "max_energy_kwh": 180.0,
+   "max_charge_kw": 100.0,
+   "max_discharge_kw": 100.0,
+   "charge_efficiency": 0.95,
+   "discharge_efficiency": 0.95,
+   "initial_energy_kwh": 100.0,
+   "initial_temperature_c": 28.0,
+   "thermal": {
+    "k_heat": 4.0,
+    "k_cool": 0.2
+   },
+   "grid": {
+    "max_import_kw": 150.0,
+    "max_export_kw": 100.0,
+    "ev_site_limit_kw": 80.0
+   },
+   "step_hours": 1.0,
+   "solar_peak_kw": 150.0
+  },
+  "economics": {
+   "tariff_regime_id": "tariff_A",
+   "unmet_ev_penalty_per_kwh": 0.6,
+   "terminal_value_per_kwh": 0.1,
+   "export_price_ratio": 0.9
+  },
+  "model": {
+   "active_profile": "ollama_qwen3-8b",
+   "debug_log": "runs/debug/latest_run/llm_calls.jsonl",
+   "profiles": {
+    "ollama_qwen3-8b": {
+     "type": "ollama",
+     "model": "qwen3:8b",
+     "host": "http://localhost:11434",
+     "temperature": 0.0,
+     "seed": 42,
+     "max_tokens": 1000,
+     "timeout_s": 120,
+     "extra_body": {
+      "think": false
+     }
+    },
+    "openrouter": {
+     "type": "openai_compat",
+     "model": "google/gemma-4-26b-a4b-it:free",
+     "base_url": "https://openrouter.ai/api/v1",
+     "api_key_env": "OPENROUTER_API_KEY",
+     "temperature": 0.0,
+     "max_tokens": 1000,
+     "timeout_s": 60,
+     "extra_body": {}
+    },
+    "groq": {
+     "type": "openai_compat",
+     "model": "openai/gpt-oss-20b",
+     "base_url": "https://api.groq.com/openai/v1",
+     "api_key_env": "GROQ_API_KEY",
+     "temperature": 0.0,
+     "max_tokens": 1000,
+     "timeout_s": 60,
+     "extra_body": {}
+    },
+    "mock": {
+     "type": "mock"
+    },
+    "ollama_deepseek-r1-8b": {
+     "type": "ollama",
+     "model": "deepseek-r1:8b",
+     "host": "http://localhost:11434",
+     "temperature": 0.6,
+     "seed": 42,
+     "max_tokens": 1000,
+     "timeout_s": 2400,
+     "extra_body": {}
+    },
+    "ollama_phi4_14b": {
+     "type": "ollama",
+     "model": "phi4:14b",
+     "host": "http://localhost:11434",
+     "temperature": 0.0,
+     "seed": 42,
+     "max_tokens": 1000,
+     "timeout_s": 1800,
+     "extra_body": {}
+    },
+    "r_qwen3_4b_think": {
+     "type": "ollama",
+     "model": "qwen3:4b",
+     "host": "http://localhost:11434",
+     "temperature": 0.6,
+     "seed": 42,
+     "max_tokens": 1000,
+     "timeout_s": 1800,
+     "extra_body": {
+      "think": true
+     }
+    },
+    "r_qwen3_8b_nothink": {
+     "type": "ollama",
+     "model": "qwen3:8b",
+     "host": "http://localhost:11434",
+     "temperature": 0.0,
+     "seed": 42,
+     "max_tokens": 1000,
+     "timeout_s": 1800,
+     "extra_body": {
+      "think": false
+     }
+    },
+    "r_qwen3_8b_think": {
+     "type": "ollama",
+     "model": "qwen3:8b",
+     "host": "http://localhost:11434",
+     "temperature": 0.6,
+     "seed": 42,
+     "max_tokens": 1000,
+     "timeout_s": 1800,
+     "extra_body": {
+      "think": true
+     }
+    },
+    "r_qwen3_14b_nothink": {
+     "type": "ollama",
+     "model": "qwen3:14b",
+     "host": "http://localhost:11434",
+     "temperature": 0.0,
+     "seed": 42,
+     "max_tokens": 1000,
+     "timeout_s": 1800,
+     "extra_body": {
+      "think": false
+     }
+    },
+    "r_deepseek_r1_8b_nothink": {
+     "type": "ollama",
+     "model": "deepseek-r1:8b",
+     "host": "http://localhost:11434",
+     "temperature": 0.6,
+     "seed": 42,
+     "max_tokens": 1000,
+     "timeout_s": 1800,
+     "extra_body": {
+      "think": false
+     }
+    },
+    "r_deepseek_r1_8b": {
+     "type": "ollama",
+     "model": "deepseek-r1:8b",
+     "host": "http://localhost:11434",
+     "temperature": 0.6,
+     "seed": 42,
+     "max_tokens": 1000,
+     "timeout_s": 1800
+    },
+    "r_gemma3_12b": {
+     "type": "ollama",
+     "model": "gemma3:12b",
+     "host": "http://localhost:11434",
+     "temperature": 0.0,
+     "seed": 42,
+     "max_tokens": 1000,
+     "timeout_s": 1800
+    },
+    "r_phi4_14b": {
+     "type": "ollama",
+     "model": "phi4:14b",
+     "host": "http://localhost:11434",
+     "temperature": 0.0,
+     "seed": 42,
+     "max_tokens": 1000,
+     "timeout_s": 1800
+    }
+   },
+   "budget": {
+    "generator": {
+     "num_ctx": [
+      4096,
+      8192,
+      16384
+     ],
+     "max_tokens": [
+      300,
+      600,
+      1200
+     ]
+    },
+    "reflector": {
+     "num_ctx": [
+      6144,
+      8192,
+      16384,
+      24576
+     ],
+     "max_tokens": [
+      3000,
+      6000,
+      10000
+     ]
+    },
+    "curator": {
+     "num_ctx": [
+      6144,
+      8192,
+      16384,
+      24576
+     ],
+     "max_tokens": [
+      3000,
+      6000,
+      10000
+     ]
+    }
+   }
+  },
+  "private_environment_rules": {
+   "thermal_penalty": {
+    "temperature_threshold_c": 35.0,
+    "discharge_fraction_threshold": 0.6,
+    "discharge_cap_fraction": 0.0,
+    "efficiency_multiplier": 1.0,
+    "duration_steps": 3,
+    "repeat_trigger_behavior": "RESET_TIMER"
+   },
+   "injection_fee": {
+    "fee_per_exported_kwh": 0.08,
+    "applicable_hours": [
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15
+    ]
+   }
+  }
+ },
+ "price_reference_loaded": true,
+ "controllers": {
+  "do_nothing": {
+   "system_prompt": null
+  },
+  "heuristic": {
+   "system_prompt": null
+  },
+  "llm_memoryless": {
+   "system_prompt": "SITUATION\nYou operate a small commercial microgrid for one 24-hour day, making one decision per hour. It has solar panels, a battery, EV chargers, and a connection to the public grid, where you can buy electricity (import price) and sell it (export price). Prices, sunshine, and EV demand change from hour to hour.\n\nGOAL\nMaximize total net money over the whole day: the sum of the 24 hourly rewards (export revenue minus import cost, charges, and penalties), plus the value of the energy left in the battery at the end (0.1 per kWh).\n\nPOINTS TO CONSIDER (not a complete list)\n- EV groups: each group has an energy target and a departure_hour. Each kWh still missing at departure costs 0.6. Each group shows hours_left and min_kw_needed_now (remaining energy / hours_left).\n- Battery: it can store energy now and release it later. Storing pays off only when the energy is later used or sold for more than it cost to store; a charge-then-discharge round trip loses about 10% of the energy.\n- Prices: they change through the day, and exports are paid about 10% less than imports cost. import_price_percentile compares this hour's import price with typical prices (0 = among the cheapest, 1 = among the most expensive).\n- Time: hours_remaining counts the hours left in the day, including the current one.\n- Solar and grid: solar can serve the site, charge the battery, or be exported. Export is limited, and solar above the limit is wasted.\n- Timing: an action that costs money now can pay off in a later hour, and the reverse.\n- Feedback: the recent history shows what was actually executed (power, interventions, clips) and the resulting reward_components, warnings, and efficiency.\n\nOTHER FACTORS\nThe list above is not complete. The environment has other rules and effects that are not described here. Infer them from the observation and the recent history, and adapt your choices.\n\nCHOICES (pick one of each, every hour)\n- battery_mode:\n  - IDLE: do nothing\n  - CHARGE_LOW: charge at 25% of rated power\n  - CHARGE_HIGH: charge at 75% of rated power\n  - DISCHARGE_LOW: discharge at 25% of rated power\n  - DISCHARGE_HIGH: discharge at 75% of rated power\n- ev_mode:\n  - MAX_AVAILABLE: charge EV groups as fast as allowed\n  - DEADLINE_AWARE: charge each group at its min_kw_needed_now rate\n  - DEFER: no EV charging this hour (the energy is still needed later)\nKnown physical limits are enforced by code.\n\nOUTPUT\nReply with one JSON object only: battery_mode, ev_mode, applied_rule_ids (always an empty list), decision_summary (one short sentence)."
+  },
+  "llm_ace": {
+   "system_prompt": "SITUATION\nYou operate a small commercial microgrid for one 24-hour day, making one decision per hour. It has solar panels, a battery, EV chargers, and a connection to the public grid, where you can buy electricity (import price) and sell it (export price). Prices, sunshine, and EV demand change from hour to hour.\n\nGOAL\nMaximize total net money over the whole day: the sum of the 24 hourly rewards (export revenue minus import cost, charges, and penalties), plus the value of the energy left in the battery at the end (0.1 per kWh).\n\nPOINTS TO CONSIDER (not a complete list)\n- EV groups: each group has an energy target and a departure_hour. Each kWh still missing at departure costs 0.6. Each group shows hours_left and min_kw_needed_now (remaining energy / hours_left).\n- Battery: it can store energy now and release it later. Storing pays off only when the energy is later used or sold for more than it cost to store; a charge-then-discharge round trip loses about 10% of the energy.\n- Prices: they change through the day, and exports are paid about 10% less than imports cost. import_price_percentile compares this hour's import price with typical prices (0 = among the cheapest, 1 = among the most expensive).\n- Time: hours_remaining counts the hours left in the day, including the current one.\n- Solar and grid: solar can serve the site, charge the battery, or be exported. Export is limited, and solar above the limit is wasted.\n- Timing: an action that costs money now can pay off in a later hour, and the reverse.\n- Feedback: the recent history shows what was actually executed (power, interventions, clips) and the resulting reward_components, warnings, and efficiency.\n\nOTHER FACTORS\nThe list above is not complete. The environment has other rules and effects that are not described here. Infer them from the observation and the recent history, and adapt your choices.\n\nCHOICES (pick one of each, every hour)\n- battery_mode:\n  - IDLE: do nothing\n  - CHARGE_LOW: charge at 25% of rated power\n  - CHARGE_HIGH: charge at 75% of rated power\n  - DISCHARGE_LOW: discharge at 25% of rated power\n  - DISCHARGE_HIGH: discharge at 75% of rated power\n- ev_mode:\n  - MAX_AVAILABLE: charge EV groups as fast as allowed\n  - DEADLINE_AWARE: charge each group at its min_kw_needed_now rate\n  - DEFER: no EV charging this hour (the energy is still needed later)\nKnown physical limits are enforced by code.\n\nOUTPUT\nReply with one JSON object only: battery_mode, ev_mode, applied_rule_ids (always an empty list), decision_summary (one short sentence).",
+   "memory_file": "runs/all_families-seeds_5/ollama_qwen3_8b-generator-ollama_phi4_14b-reflector/llm_ace/memory.json",
+   "rules_loaded_at_start": 0,
+   "log_path": "runs/all_families-seeds_5/ollama_qwen3_8b-generator-ollama_phi4_14b-reflector/llm_ace/ace_log.jsonl",
+   "reflector_same_client_as_generator": false,
+   "budget_ladders": {
+    "generator": {
+     "num_ctx": [
+      4096,
+      8192,
+      16384
+     ],
+     "max_tokens": [
+      300,
+      600,
+      1200
+     ]
+    },
+    "reflector": {
+     "num_ctx": [
+      6144,
+      8192,
+      16384,
+      24576
+     ],
+     "max_tokens": [
+      3000,
+      6000,
+      10000
+     ]
+    },
+    "curator": {
+     "num_ctx": [
+      6144,
+      8192,
+      16384,
+      24576
+     ],
+     "max_tokens": [
+      3000,
+      6000,
+      10000
+     ]
+    }
+   }
+  }
+ }
+}
